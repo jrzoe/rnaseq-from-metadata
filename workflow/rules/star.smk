@@ -8,11 +8,11 @@ rule star_pe_multi:
     input:
         # paired end reads needs to be ordered so each item in the two lists match
         fq1=lambda wildcards: expand(
-            "{{base_path}}/fastp/{{basename}}_run{seq_rep}_R1.fq.gz",
+            "{{base_path}}/fastp/{{basename}}_run{seq_rep}_R1.fastq.gz",
             seq_rep=get_seq_reps(wildcards)
         ),
         fq2=lambda wildcards: expand(
-            "{{base_path}}/fastp/{{basename}}_run{seq_rep}_R2.fq.gz",
+            "{{base_path}}/fastp/{{basename}}_run{seq_rep}_R2.fastq.gz",
             seq_rep=get_seq_reps(wildcards)
         ),
         # path to STAR reference genome index

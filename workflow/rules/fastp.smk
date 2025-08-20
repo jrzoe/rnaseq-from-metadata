@@ -1,17 +1,17 @@
 rule fastp_pe:
     input:
         sample=[
-            "{base_path}/fastq/{basename}_run{seq_rep}_R1.fq.gz",
-            "{base_path}/fastq/{basename}_run{seq_rep}_R2.fq.gz"
+            "{base_path}/fastq/{basename}_run{seq_rep}_R1.fastq.gz",
+            "{base_path}/fastq/{basename}_run{seq_rep}_R2.fastq.gz"
         ]
     output:
         trimmed=[
-            temp("{base_path}/fastp/{basename}_run{seq_rep}_R1.fq.gz"),
-            temp("{base_path}/fastp/{basename}_run{seq_rep}_R2.fq.gz")
+            temp("{base_path}/fastp/{basename}_run{seq_rep}_R1.fastq.gz"),
+            temp("{base_path}/fastp/{basename}_run{seq_rep}_R2.fastq.gz")
         ],
-        unpaired1=temp("{base_path}/fastp/{basename}_run{seq_rep}_u1.fq.gz"),
-        unpaired2=temp("{base_path}/fastp/{basename}_run{seq_rep}_u2.fq.gz"),
-        failed=temp("{base_path}/fastp/{basename}_run{seq_rep}_failed.fq.gz"),
+        unpaired1=temp("{base_path}/fastp/{basename}_run{seq_rep}_u1.fastq.gz"),
+        unpaired2=temp("{base_path}/fastp/{basename}_run{seq_rep}_u2.fastq.gz"),
+        failed=temp("{base_path}/fastp/{basename}_run{seq_rep}_failed.fastq.gz"),
         html="{base_path}/report/fastp/{basename}_run{seq_rep}.html",
         json="{base_path}/report/fastp/{basename}_run{seq_rep}.json"
     log:
