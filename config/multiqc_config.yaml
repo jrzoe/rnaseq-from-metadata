@@ -1,0 +1,15 @@
+module_order:
+  - fastp
+  - star
+  - rseqc
+  - featureCounts
+
+rseqc_sections:
+  - inner_distance
+  - read_gc_content
+  - read_duplication
+  - bam_stat
+  - infer_experiment
+  - read_distribution
+  - junction_saturation
+  - junction_annotation

@@ -1,0 +1,64 @@
+executor: slurm
+latency-wait: 120
+jobs: 100
+
+# default resources for all jobs
+default-resources:
+  tasks: 1
+  cpus_per_task: 1
+  slurm_extra: "'--partition=short,torus'"
+
+# job-specific resources
+set-resources:
+  fastp_pe:
+    mem_mb: 4000
+    cpus_per_task: 2
+    runtime: 30
+  star_index:
+    mem_mb: 40000
+    cpus_per_task: 4
+    runtime: 150
+    slurm_extra: "'--partition=mhgcp,torus'"
+  star_pe_multi:
+    mem_mb: 36000
+    cpus_per_task: 4
+    runtime: 360
+    slurm_extra: "'--partition=mhgcp,torus'"
+  samtools_index:
+    mem_mb: 300
+    cpus_per_task: 2
+    runtime: 20
+  feature_counts:
+    mem_mb: 1600
+    cpus_per_task: 2
+    runtime: 30
+  rseqc_gtf2bed:
+    mem_mb: 500
+    runtime: 120
+  rseqc_junction_annotation:
+    mem_mb: 400
+    runtime: 60
+  rseqc_junction_saturation:
+    mem_mb: 2400
+    runtime: 60
+  rseqc_stat:
+    mem_mb: 250
+    runtime: 60
+  rseqc_infer:
+    mem_mb: 400
+    runtime: 60
+  rseqc_innerdis:
+    mem_mb: 1600
+    runtime: 60
+  rseqc_readdis:
+    mem_mb: 1600
+    runtime: 60
+  rseqc_readdup:
+    mem_mb: 8000
+    runtime: 90
+  rseqc_readgc:
+    mem_mb: 250
+    runtime: 60
+  multiqc:
+    mem_mb: 300
+    runtime: 40
