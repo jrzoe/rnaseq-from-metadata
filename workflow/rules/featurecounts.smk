@@ -21,7 +21,7 @@ rule feature_counts:
         extra = (
             "-F GTF -t exon -g gene_id -p --countReadPairs {}"
         ).format(
-            config["featurecounts_extra"]
+            config["featurecounts_extra"].replace("\n", " ").strip()
         ),
     log:
         "{base_path}/logs/featurecounts/{basename}.log",
