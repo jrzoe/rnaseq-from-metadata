@@ -59,10 +59,5 @@ def get_multiqc_output():
     return multiqc_out
 
 def get_final_output(): 
-    final_output = get_final_fastp_output()
-    final_output.append(str(config["star_index"]))
-    final_output.extend(get_bam_output())
-    final_output.extend(get_bai())
-    final_output.extend(get_featureCounts_output())
-    final_output.extend(get_multiqc_output())
+    final_output = get_multiqc_output()
     return final_output
