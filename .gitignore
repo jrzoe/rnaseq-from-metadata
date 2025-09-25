@@ -1,0 +1,5 @@
+.*
+!/.gitignore
+!/.git/
+sample_metadata.csv
+logs/**

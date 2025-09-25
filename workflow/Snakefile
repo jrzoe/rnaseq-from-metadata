@@ -1,0 +1,22 @@
+from snakemake.utils import min_version
+
+#### set minimum snakemake version ####
+min_version("8.8")
+
+#### load config ####
+configfile: "config/config.yaml"
+
+#### load rules ####
+include: "rules/common.smk"
+include: "rules/fastp.smk"
+include: "rules/star_index.smk"
+include: "rules/star.smk"
+include: "rules/samtools.smk"
+include: "rules/featurecounts.smk"
+include: "rules/rseqc.smk"
+include: "rules/multiqc.smk"
+
+#### target rules ####
+rule all:
+    input: 
+        get_final_output(),
