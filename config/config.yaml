@@ -3,36 +3,36 @@
 #### Path to sample sheet (CSV format), either relative to smk dir or full ####
 samples: sample_metadata.csv
 
-#### root data directory ####
+#### Root data directory ####
 data_dir: </path/to/data/dir> 
 
-#### metadata columns used for subdirectories ####
-# order reflects the subdirectory structure within the root output directory
-# must match metadata column names exactly!
+#### Metadata columns used for subdirectories ####
+# Order will reflect the order in which subdirectories are created within
+# \ within the root output directory. Must match metadata column names exactly!
 metadata_columns:
   - cell_line_mod
   - experiment_name
 
-#### path to genome fasta to be used by STAR ####
+#### Path to genome fasta to be used by STAR ####
 genome_fasta: </path/to/hg38/sequence/GRCh38.dna.primary_assembly.fa>
 
-#### path to STAR genome index directory ####
-# this will be generated if it does not yet exist for the current genome_fasta
-# good practice to append with STAR version being used
+#### Path to STAR genome index directory ####
+# This will be generated if it does not yet exist for the current genome_fasta.
+# Good practice to append with STAR version being used
 star_index: </path/to/hg38/STARindex_2.7.11b>
 
-#### path to GTF with annotated transcripts ####
+#### Path to GTF with annotated transcripts ####
 annotation: </path/to/hg38/annotation/GRCh38.112.gtf>
 
 #### UMI preprocessing ####
-# if samples contain UMIs, the following parameters will be used by fastp
-# for UMI processing. Ignored if not using UMIs.
+# If samples contain UMIs, the following parameters will be used by fastp
+# \ for UMI processing. Ignored if not using UMIs.
 umi_params: "--umi --umi_loc=read1 --umi_len=12" # Lexogen Corall
 
 ######## LIKELY DON'T NEED TO EDIT - FINE TUNING RULES ########
 
-#### extra parameters ####
-# STAR: best to keep these tags for RNAseq
+#### Extra parameters ####
+# STAR: additional tags that can be useful for NR-seq
 star_extra: "--outSAMattributes NH HI AS NM MD nM"
 
 # featureCounts: these are the default params
