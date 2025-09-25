@@ -42,69 +42,6 @@ wildcard_constraints:
     basename="|".join(samples["sample_basename"].unique().tolist()),
     seq_rep="|".join(samples["seq_replicate"].unique().tolist())
 
-#### Fastp output ####
-
-def get_final_fastp_output():
-    samples["fastp_out"] = samples.apply(
-        lambda sample:
-            os.path.join(
-                config["data_dir"],
-                *[sample[col] for col in config["metadata_columns"]],
-                "report/fastp",
-                f"{sample["sample_basename"]}_run{sample["seq_replicate"]}.html"
-            ),
-        axis=1
-    )
-    fastp_out = samples["fastp_out"].unique().tolist()
-    return fastp_out
-
-#### STAR output ####
-
-def get_bam_output():
-    samples["bam_out"] = samples.apply(
-        lambda sample:
-            os.path.join(
-                config["data_dir"],
-                *[sample[col] for col in config["metadata_columns"]],
-                "star/bam",
-                f"{sample["sample_basename"]}_sortedByCoord.bam"
-            ),
-        axis=1
-    )
-    bam_out = samples["bam_out"].unique().tolist()
-    return bam_out
-
-#### samtools output ####
-def get_bai():
-    samples["bai_out"] = samples.apply(
-        lambda sample:
-            os.path.join(
-                config["data_dir"],
-                *[sample[col] for col in config["metadata_columns"]],
-                "star/bam",
-                f"{sample["sample_basename"]}_sortedByCoord.bam.bai"
-            ),
-        axis=1
-    )
-    bai_out = samples["bai_out"].unique().tolist()
-    return bai_out
-
-#### featureCounts output ####
-
-def get_featureCounts_output():
-    samples["featureCounts_out"] = samples.apply(
-        lambda sample:
-            os.path.join(
-                config["data_dir"],
-                *[sample[col] for col in config["metadata_columns"]],
-                "featurecounts",
-                f"{sample["sample_basename"]}_gene_counts.txt"
-            ),
-        axis=1
-    )
-    featureCounts_out = samples["featureCounts_out"].unique().tolist()
-    return featureCounts_out
-
 #### multiqc output ####
 
 def get_multiqc_output():
