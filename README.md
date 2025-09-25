@@ -42,7 +42,7 @@ If oyur HPC has a particularly outdated `conda` version installed for all users,
 Deploy this pipeline into the root data directory specified within the `config.yaml` file, within a subdirectory called `snakemake`. For example, you would navigate to `/path/to/config_data_dir/snakemake`, then use `snakedeploy` to deploy the pipeline and keep it associated with the data it will process. Be sure to specify the version number being used, for example:
 
 ```bash
-snakedeploy deploy-workflow --tag <version_number> git_link.git <dest-dir>
+snakedeploy deploy-workflow --tag <version_number> https://github.com/jrzoe/rnaseq-from-metadata.git <dest-dir>
 ```
 
 ### Profiles
